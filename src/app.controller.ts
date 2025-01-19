@@ -21,10 +21,10 @@ export class AppController {
 
   @Post('picture')
   @UseInterceptors(FileInterceptor('image'))
-  async saveInferenceImage(
+  async saveImage(
     @UploadedFile() file: Express.Multer.File,
     @Body('roomNumber') roomNumber: string,
   ) {
-    return this.appService.saveInferenceImage(file, roomNumber);
+    return await this.appService.saveImage(file, roomNumber);
   }
 }
